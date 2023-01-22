@@ -1,0 +1,15 @@
+--- 
+import { Attributes } from "../Style"
+const props = Astro.props
+let attProps = props 
+attProps.target = props.external ? "_blank" : null
+
+const atts = Attributes(attProps)
+--- 
+<a href={props.url} {...atts}>
+    {props.content}
+    <slot/>
+</a>
+
+
+

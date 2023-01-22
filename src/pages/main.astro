@@ -1,0 +1,36 @@
+---
+// Component imports
+import { LayoutPWA } from "@globals"
+import { Card } from "@globals"
+import { Container, ContainerJustified } from "@globals"
+import { LinkButtonRounded } from "@globals"
+const data = { title: "🟢 astro-pwa-starter", content: "Its alive!" }
+const cardAtts = {
+	h1:{class:"text-4xl font-semibold"},
+	p:{class:"italic"}
+}
+---
+
+<LayoutPWA title="Astro PWA Starter">
+	<section class="p-6 flex-1 flex flex-col justify-between">
+		<Container class="max-w-xl mx-auto flex flex-col justify-center flex-1 space-y-10">
+			<Card atts={cardAtts} 
+				class="space-y-2 text-center">
+				<h3 class={cardAtts.h1.class} slot="hook">{data.title}</h3>
+				<p class={cardAtts.p.class} slot="plug">
+				It works! Check out <span class="p-1 rounded-lg bg-gray-100 font-mono"
+					>/src/pages</span> to get started.
+				</p>
+				<h6 slot="footer">FOOTER!</h6>
+			</Card>
+		</Container>
+
+		<ContainerJustified>
+			<LinkButtonRounded 
+				href="https://twitter.com/shaunchander" 
+				src="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg">
+				Built by @shaunchander
+			</LinkButtonRounded>
+		</ContainerJustified>		
+	</section>
+</LayoutPWA>

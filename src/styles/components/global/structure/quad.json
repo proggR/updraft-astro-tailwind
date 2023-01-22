@@ -1,0 +1,15 @@
+{
+    "class":"sm:flex gap-x-2 flex-col md:grid grid-cols-2 md:gap-2 p-2 md:p-2 mt-2 mb-8",
+    "topleft":{
+       "class":"p-2"
+    },
+    "topright":{
+       "class":"p-2"
+    },
+    "bottomleft":{
+       "class":"p-2"
+    },
+    "bottomright":{
+       "class":"p-2"
+    }
+}

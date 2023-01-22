@@ -1,0 +1,33 @@
+--- 
+import { Container, HookPlug, Triplet } from '../Container'
+import { Address } from '../Prefabs/Contact'
+import { LinkList } from '../List'
+const props = Astro.props 
+const address = props.address
+const classes = { left:'bg-transparent',middle:'bg-transparent',right:'bg-transparent' }
+const list1 = props.list1 ? props.list1 : {}
+const list2 = props.list2 ? props.list2 : {}
+const list3 = props.list3 ? props.list3 : {}
+--- 
+<Container class="w-full bg-slate-600 p-8 text-neutral-50 flex flex-row">
+    {! props.addressLast && 
+    <HookPlug class="basis-1/4">
+        <h3 slot="hook">Let's Chat!</h3>
+        <Address slot="plug" address={address} />
+    </HookPlug>
+    }
+    <Container  class="w-full">
+        <Triplet atts={classes} class="w-full">
+            <LinkList title={list1.title} items={list1.items} slot="left"/>
+            <LinkList title={list2.title} items={list2.items} slot="middle" />
+            <LinkList title={list3.title} items={list3.items} slot="right" />
+        </Triplet>
+    </Container>
+    {props.addressLast && 
+        <HookPlug class="basis-1/4">
+            <h3 slot="hook">Let's Chat!</h3>
+            <Address slot="plug" address={address} />
+        </HookPlug>
+        }    
+</Container>
+

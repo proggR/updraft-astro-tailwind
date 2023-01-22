@@ -1,0 +1,11 @@
+--- 
+import { Split } from '../Container'
+import { Img } from '../Media'
+import header from '../../../assets/img/header.png'
+const props = Astro.props 
+--- 
+
+<Split {...props}> 
+    <h1 class={props.left.h1.class} slot="left">Words</h1>    
+    <Img src={header} slot="right">    
+</Split>

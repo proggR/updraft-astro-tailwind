@@ -1,0 +1,7 @@
+--- 
+import { Attributes } from "../Style";
+const props = Astro.props 
+const atts = Attributes(props)
+--- 
+
+<img src={props.src} {...atts} />

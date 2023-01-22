@@ -1,0 +1,19 @@
+---
+import React from 'react'
+import { Container } from "../Container"
+import { flattenMenu } from "./"
+import { Link } from "../Tag"
+import structure from "@globalStructure/menumain.json"
+import style from "@globalStyle/menumain.json"
+
+const props = Astro.props
+const items = props.items ? props.items : []
+const { links, menu } = flattenMenu(structure, style, props)
+---
+<Container id="menu-main" class={menu.class}>
+    <Container class={menu.wrap}>
+      {items.map((item) => (
+        <Link url={item.url} class={(item.active ? links.active : links.class)}>{item.text}</Link>
+      ))}
+    </Container>
+</Container>

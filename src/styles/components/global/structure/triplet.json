@@ -1,0 +1,12 @@
+{
+    "class":"flex gap-x-2 flex-col md:flex-row p-2 md:p-2 mt-2 mb-8 ",
+    "left":{
+        "class":"basis-1/2 p-2"
+     },
+     "middle":{
+        "class":"basis-1/2 p-2"
+     },
+     "right":{
+        "class":"basis-1/2 p-2"
+     }
+}

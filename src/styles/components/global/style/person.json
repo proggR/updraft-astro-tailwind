@@ -1,0 +1,8 @@
+{
+    "person":{
+        "class":"text-lg font-bold"
+    },
+    "title":{
+        "class":"text-lg"
+    }
+}

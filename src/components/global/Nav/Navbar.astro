@@ -1,0 +1,34 @@
+---
+import { Hamburger, Brand, MenuMain, MenuCollapsable } from './'
+import { Container } from '../Container'
+import { Attributes, flattenClasses } from '../Style'
+import structure from "@globalStructure/navbar.json"
+import style from "@globalStyle/navbar.json"
+
+const props = Astro.props
+const atts = Attributes(props)
+
+const links = [
+    {url:"/who",text:"Who?",active:true},
+    {url:"/what",text:"What?"},
+    {url:"/why",text:"Why?"},
+    {url:"/portfolio",text:"Projects"},
+    {url:"/contact",text:"Let's Chat"}
+]
+
+const classes = flattenClasses(['wrap','main'],structure,style,{})
+
+---
+<nav {...atts}>
+  <Container class={classes.class}>
+    <Container class={classes.main}>
+      <Hamburger {...props.menumobile.button}/>
+      <Container class={classes.wrap}>
+        <Brand {...props.navbar.brand}/>
+        <MenuMain {...props.menumain.menu} items={links}/>          
+      </Container>        
+    </Container>
+  </Container>
+  <MenuCollapsable {...props.menumobile.menu} items={links}/>
+</nav>
+  

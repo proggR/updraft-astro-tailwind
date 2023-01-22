@@ -1,0 +1,12 @@
+--- 
+import { Container, HookPlug } from '../Container'
+import { FormTextCapture } from '../Form'
+const props = Astro.props 
+--- 
+<HookPlug class={props.class}>    
+    <slot name="hook" slot="hook"/>
+    <Container slot="plug">
+        <FormTextCapture {...props} />        
+        <slot name="footer"/>
+    </Container>    
+</HookPlug>

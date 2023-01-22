@@ -1,0 +1,29 @@
+{
+    "wrap":{
+       "class":""
+    },
+    "button":{
+       "class":"inline-flex items-center justify-center rounded-md p-2",
+       "wrap":{
+         "class":"sm:hidden absolute inset-y-0 left-0 flex items-center sm:mr-2"
+       },
+       "svg":{
+          "class":"block h-6 w-6",
+          "hid":{
+             "class":"hidden h-6 w-6"
+          }
+       }
+    },
+    "menu":{
+       "class":"sm:hidden",
+       "wrap":{
+          "class":"space-y-1 px-2 pt-2 pb-3"
+       },
+       "links":{
+          "class":"block px-3 py-2 rounded-md",
+          "active":{
+             "class":"px-3 py-2 rounded-md"
+          }
+       }
+    }
+ }

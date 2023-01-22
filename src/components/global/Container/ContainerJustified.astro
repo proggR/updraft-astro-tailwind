@@ -1,0 +1,9 @@
+---
+import {Container} from "./"
+const props = Astro.props
+const justClass = ' flex justify-center'
+props.class = props.class ? props.class+justClass : justClass
+---
+
+<Container {...props}><slot /></Container>
+

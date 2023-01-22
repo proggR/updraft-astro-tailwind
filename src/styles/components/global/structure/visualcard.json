@@ -1,0 +1,12 @@
+{
+    "class":"bg-cover bg-center h-[100%] flex flex-col",
+    "plug":{
+        "class":"z-10 p-4 basis-1/8 mx-28"
+    },
+    "above":{
+        "class":"basis-3/4"
+    },
+    "below":{
+        "class":"basis-1/8"
+    }
+}

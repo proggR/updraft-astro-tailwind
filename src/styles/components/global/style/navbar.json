@@ -1,0 +1,11 @@
+{
+    "class":"bg-gray-800",
+    "main":{
+
+    },
+    "brand":{
+        "flair":{
+           "class":"bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500"
+        }            
+     }    
+}

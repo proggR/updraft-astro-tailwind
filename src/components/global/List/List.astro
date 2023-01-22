@@ -1,0 +1,11 @@
+--- 
+import { Attributes } from "../Style"
+import { ListItem } from "./"
+const props = Astro.props 
+const atts = Attributes(props)
+const itemAtts = props.atts && props.atts.items ? props.atts.items : {}
+
+--- 
+<ul {...atts}>{props.items && 
+    props.items.map(item =>  <ListItem {...itemAtts}>{item}</ListItem>)
+}<slot/></ul>

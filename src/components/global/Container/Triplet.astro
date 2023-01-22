@@ -1,0 +1,26 @@
+--- 
+import { flattenClasses } from '../Style'
+import { Container, HookPlug } from '../Container'
+import structure from "@globalStructure/triplet.json"
+import style from "@globalStyle/triplet.json"
+
+const props = Astro.props 
+const classes = flattenClasses(["left","middle","right"],structure,style,props)
+--- 
+
+
+<HookPlug>    
+    <slot name="hook" slot="hook"/>
+
+    <Container class={classes.class} slot="plug">         
+        <Container class={classes.left}> 
+            <slot name="left" />
+        </Container>
+        <Container class={classes.middle}> 
+            <slot name="middle" />
+        </Container>
+        <Container class={classes.right}> 
+            <slot name="right" />
+        </Container>
+    </Container>
+</HookPlug>

@@ -4,7 +4,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"prettier.documentSelectors": ["**/*.astro"],
-	"editor.formatOnSave": true,
+	"editor.formatOnSave": false,
 	"eslint.validate": ["javascript", "astro", "typescript"],
 	"eslint.alwaysShowStatus": true,
 	"eslint.packageManager": "pnpm"

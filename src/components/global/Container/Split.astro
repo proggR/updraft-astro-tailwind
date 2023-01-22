@@ -1,0 +1,23 @@
+--- 
+import { Container, HookPlug } from '../Container'
+import { flattenClasses } from '../Style'
+import structure from "@globalStructure/split.json"
+import style from "@globalStyle/split.json"
+
+const props = Astro.props 
+const classes = flattenClasses(["left","right","hook"],structure,style,props)
+console.log(classes)
+console.log(props)
+--- 
+<HookPlug>    
+    <slot name="hook" slot="hook"/>
+
+    <Container class={classes.class} slot="plug"> 
+        <Container class={classes.left}> 
+            <slot name="left" />
+        </Container>
+        <Container class={classes.right}> 
+            <slot name="right" />
+        </Container>
+    </Container>
+</HookPlug>

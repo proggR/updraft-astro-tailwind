@@ -1,0 +1,12 @@
+---
+import {  Attributes } from "../Style"
+const props = Astro.props
+const uuid = "NOTREALLYAUUID"
+const atts = Attributes(props)
+---
+
+<div
+{...atts}
+data-uuid={uuid}>
+    <slot />
+</div>

@@ -1,0 +1,14 @@
+--- 
+import { Attributes } from "../Style";
+let tProps = Astro.props 
+tProps.id = tProps.id?tProps.id:tProps.name 
+const props = tProps
+const atts = Attributes(props)
+--- 
+<input
+    id={props.id}
+    name={props.name}
+    type="text"
+    placeholder={props.placeholder}
+    {...atts}
+/>

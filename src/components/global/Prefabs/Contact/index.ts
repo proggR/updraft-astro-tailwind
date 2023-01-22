@@ -1,0 +1,6 @@
+export { default as PersonTitle } from "./PersonTitle.astro"
+export { default as ContactCard } from "./ContactCard.astro"
+export { default as ContactCardCompany } from "./ContactCardCompany.astro"
+export { default as Address } from "./Address.astro"
+export { default as Hours } from "./Hours.astro"
+export { default as Map } from "./Map.astro"

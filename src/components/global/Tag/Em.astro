@@ -1,0 +1,6 @@
+--- 
+import { Attributes } from "../Style"
+const props = Astro.props 
+const atts = Attributes(props)
+--- 
+<em {...atts}>{props.content}<slot/></em>

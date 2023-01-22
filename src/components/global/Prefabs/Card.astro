@@ -1,0 +1,24 @@
+---
+const props = Astro.props
+import { Container, HookPlug } from "../Container"
+import {  flattenClasses } from "../Style"
+import {  Img } from "../Media"
+import structure from "@globalStructure/card.json"
+import style from "@globalStyle/card.json"
+
+const classes = flattenClasses(["img"],structure,style,props)
+---
+<Container>
+    <HookPlug>
+        {props.img && 
+            <Img src={props.img} slot="hook" class={classes.img}/>
+        }        
+        <HookPlug {...props} slot="plug">
+            <slot name="super"  />
+            <slot name="hook" slot="hook" />
+            <slot name="sub" />
+            <slot name="plug" slot="plug" />
+        </HookPlug>    
+    </HookPlug>
+    <slot name="footer" />
+</Container>

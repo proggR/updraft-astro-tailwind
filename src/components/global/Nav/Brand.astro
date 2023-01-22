@@ -1,0 +1,13 @@
+--- 
+import { Container } from "../Container"
+import { Link } from "../Tag"
+import { flattenClasses } from "../Style"
+import structure from "@globalStructure/navbar.json"
+import style from "@globalStyle/navbar.json"
+
+const props = Astro.props 
+const brand = flattenClasses(["sm","lg","flair"],structure.brand,style.brand,props)
+--- 
+<Container class={brand.class}>
+    Affordable&nbsp;<span class={brand.flair}>Audience</span>
+</Container>

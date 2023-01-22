@@ -1,0 +1,48 @@
+<label for="emailaddress" {...atts.main.form.body.label}>
+    Lets chat.
+</label>
+<p>We'll reach out with some initial questions and more information covering what we can offer (or build).<br/><br/></p>
+<input
+    id="emailaddress"
+    type="text"
+    placeholder="vip@yoursmallbusiness.com"
+    {...atts.main.form.body.input}
+/>
+
+
+<Span {...subAtts.span} slot="hook">{props.name}</Span>
+<Span {...subAtts.span} slot="plug">{props.title}</Span>
+
+// @TODO: aria-current="page" on active
+
+<script>
+    const button: HTMLElement = document.getElementById('menu-btn');
+    console.log(button)
+    const MenuToggle = () => {
+      const menuMain: HTMLElement = document.getElementById('menu-main');  
+      const menuMobile: HTMLElement = document.getElementById('menu-mobile');  
+      let mainClass = menuMain.className.replace('hidden','tmp')
+      mainClass = mainClass.replace('hidden','tmp')
+      mainClass = mainClass.replace('block','hidden')  
+      mainClass = mainClass.replace('tmp','block')
+    
+      let mobileClass = menuMain.className.replace('hidden','tmp')
+      mobileClass = mobileClass.replace('hidden','tmp')
+      mobileClass = mobileClass.replace('block','hidden')  
+      mobileClass = mobileClass.replace('tmp','block')
+    
+      menuMain.classname = mainClass  
+      menuMobile.classname = mobileClass  
+    }
+    button.addEventListener('click',MenuToggle)
+    </script>
+
+
+<SidebarLeft {...atts.hero}>
+    <div slot="hook">
+        <h3 class={atts.hero.left.h1.class}>This a heading</h3>
+        <p>And some text. Throw whatever you want here. Saul Good maaan.</p>
+    </div>
+    <p slot="left">I AM LEFT</p>
+    <p slot="right">I AM RIGHT</p>
+</SidebarLeft>

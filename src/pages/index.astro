@@ -1,67 +1,100 @@
----
-// Component imports
-import { Layout } from "@globals"
----
+--- 
+import { Footer, LayoutLanding } from "@globals"
+import { Link, Img, Svg } from "@globals"
+import { Container } from "@globals"
+import { Form, FieldText } from "@globals"
 
-<Layout title="Astro PWA Starter">
-	<section class="p-6 flex-1 flex flex-col justify-between">
-		<!-- Welcome -->
-		<div
-			class="max-w-xl mx-auto flex flex-col justify-center flex-1 space-y-10"
-		>
-			<div class="space-y-2 text-center">
-				<h1 class="text-4xl font-semibold">🟢 astro-pwa-starter</h1>
-				<p class="italic">
-					It works! Check out <span class="p-1 rounded-lg bg-gray-100 font-mono"
-						>/src/pages</span
-					> to get started.
-				</p>
-			</div>
-			<div>
-				<ul class="grid md:grid-cols-2 gap-4">
-					<li>
-						<a
-							href="https://github.com/shaunchander/astro-pwa-starter#-getting-started-guide"
-							class="p-6 rounded-2xl border border-gray-500 flex flex-col text-center hover:bg-blue-500 focus:bg-blue-500 hover:text-white duration-300 ease-in-out transition hover:border-blue-500 focus:border-blue-500"
-						>
-							<span class="text-xl font-medium">🚀 Getting started guide</span>
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://github.com/shaunchander/astro-pwa-starter#-documentation"
-							class="p-6 rounded-2xl border border-gray-500 flex flex-col text-center hover:bg-blue-500 focus:bg-blue-500 hover:text-white duration-300 ease-in-out transition hover:border-blue-500 focus:border-blue-500"
-						>
-							<span class="text-xl font-medium">📖 Documentation</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
 
-		<!-- Twitter -->
-		<div class="flex justify-center">
-			<a
-				href="https://twitter.com/shaunchander"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="relative inline-flex items-center rounded-full bg-gray-100 p-4 transition duration-300 ease-in-out hover:-translate-y-2 focus:-translate-y-2 group hover:text-white focus:text-white"
-			>
-				<div class="flex items-center space-x-4 relative z-10">
-					<img
-						src="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg"
-						width={48}
-						height={48}
-						class="rounded-full object-cover"
-						alt=""
-					/>
-					<span class="text-lg font-bold">Built by @shaunchander</span>
-				</div>
-				<div
-					class="inline-block rounded-full absolute inset-0 bg-gradient-to-tr from-[#07f49e] to-[#42047e] opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-300 ease-in-out transition"
-				>
-				</div>
-			</a>
-		</div>
-	</section>
-</Layout>
+import headerImg from '../assets/img/header.png'
+import animatedImg from '../assets/svg/macbook.svg'
+import atts from '../styles/landing'
+
+const formAtts = {
+    "atts":{
+        label:atts.main.form.body.label,
+        input:atts.main.form.body.input
+    }
+}
+--- 
+   
+<LayoutLanding title="Hello World, &hearts; Affordable Audience">
+    <Container {...atts.wrap}>
+        <!--Nav-->
+        <Container {...atts.nav}>
+            <Container {...atts.nav.flex}>
+                <Link href="#" {...atts.nav.logo}>
+                    Affordable&nbsp;<span {...atts.nav.logo.flair}>Audience</span>
+                </Link>
+                <Container {...atts.nav.socials}>
+                    <Link href="https://twitter.com/intent/tweet?url=#" 
+                    {...atts.nav.socials.link}>
+                        <Svg data="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z" {...atts.nav.socials.link.icon}/>
+                    </Link>
+                    <Link href="https://www.facebook.com/sharer/sharer.php?u=#"
+                    {...atts.nav.socials.link}>
+                        <Svg data="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z" {...atts.nav.socials.link.icon} />
+                    </Link>
+                </Container>
+            </Container>
+        </Container>
+
+        <!--Main-->
+        <Container {...atts.main}>
+            <!--Left Col-->
+            <Container {...atts.main.wrap}>
+                <h1 {...atts.main.wrap.h1}>
+                    Hello World
+                    <span {...atts.main.wrap.h1.flair}>
+                    &hearts;
+                    </span><br/>             
+                    We <em class="underline">are</em> online.
+                </h1>
+                <p {...atts.main.wrap.p}>
+                    Our business is helping small teams keep up and grow online. We specialize in fast sites, webapps & services built with best in class tooling, and <em class="underline">always</em> put SEO first.
+                    <br/><br/>
+                    Small business/org with digital needs?<br/>We can help.
+                </p>
+
+                <Form {...atts.main.form}>
+                    <Container {...atts.main.form.body}>
+                        <FieldText name="emailaddress"
+                            placeholder="vip@yoursmallbusiness.com"
+                            label="Let's Chat" 
+                            {...formAtts}
+                            >
+                            <p class="mb-6">We'll reach out with some initial questions and more information covering what we can offer.</p>
+                        </FieldText>
+                        
+                    </Container>
+                    <Container  {...atts.main.form.footer}>
+                        <button
+                            type="button"
+                            {...atts.main.form.footer.submit}>
+                            Inbox Us
+                        </button>
+                        <Link url="/agency"
+                        {...atts.main.form.footer.more}>
+                        Agency
+                        </Link>
+                    </Container>
+                </Form>            
+            </Container>
+
+            <!--Right Col-->
+            <Container {...atts.right}>
+                <Img src={animatedImg} {...atts.right.img} />
+            </Container>
+
+            <!--Footer-->
+            <Container {...atts.footer}>
+                <Link href="https://deit.ca" 
+                    external={true}
+                    {...atts.footer.deit}>
+                    &copy; Affordable Audience, c/o DEIT 2023
+                </Link>
+                - 
+                <Link href="https://www.tailwindtoolbox.com" {...atts.footer.tailwind}>TailwindToolbox.com</Link>
+            </Container>
+        </Container>
+    </Container>
+</LayoutLanding>

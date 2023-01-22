@@ -1,0 +1,26 @@
+--- 
+import { flattenClasses } from '../Style'
+import { Container, HookPlug } from '../Container'
+import structure from "@globalStructure/quad.json"
+import style from "@globalStyle/quad.json"
+
+const props = Astro.props 
+const classes = flattenClasses(['topleft','topright','bottomleft','bottomright'],structure,style,props)
+--- 
+<HookPlug>    
+    <slot name="hook" slot="hook"/>
+    <Container class={classes.class} slot="plug">      
+        <Container class={classes.topleft}> 
+            <slot name="tl" />
+        </Container>
+        <Container class={classes.topright}> 
+            <slot name="tr" />
+        </Container>
+        <Container class={classes.bottomleft}> 
+            <slot name="bl" />
+        </Container>
+        <Container class={classes.bottomright}> 
+            <slot name="br" />
+        </Container>
+    </Container>    
+</HookPlug>

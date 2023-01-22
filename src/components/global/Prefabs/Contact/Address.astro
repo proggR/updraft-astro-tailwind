@@ -1,0 +1,24 @@
+--- 
+import { Container } from "../../Container"
+import { Strong } from "../../Tag"
+
+
+const props = Astro.props
+const classes = {class:props.class}
+---
+
+<Container class={classes.class}>
+
+    {props.address &&                
+        
+        <Strong>Address:</Strong>
+            <ul class="ml-16">
+                <li>{props.address.street}</li>
+                <li>{props.address.city+', '+props.address.prov}</li>
+                <li>{props.address.postal}</li>                
+            </ul>
+    }
+ 
+</Container>    
+
+

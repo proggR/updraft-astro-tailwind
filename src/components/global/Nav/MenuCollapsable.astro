@@ -1,0 +1,19 @@
+---
+import { Link } from "../Tag"
+import { Container } from "../Container"
+import { flattenMenu } from "./"
+import structure from "@globalStructure/menumobile.json"
+import style from "@globalStyle/menumobile.json"
+
+const props = Astro.props
+const items = props.items ? props.items : []
+const { links, menu } = flattenMenu(structure, style, props)
+---
+<!-- Mobile menu, show/hide based on menu state. -->
+<Container id="menu-mobile" class={menu.class}>
+    <Container class={menu.wrap}>
+        {items.map((item) => (
+            <Link url={item.url} class={(item.active ? links.active : links.class)}>{item.text}</Link>
+        ))}
+    </Container>
+</Container>

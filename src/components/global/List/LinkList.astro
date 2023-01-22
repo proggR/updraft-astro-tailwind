@@ -1,0 +1,14 @@
+--- 
+import { Attributes } from "../Style"
+import { LinkListItem } from "./"
+const props = Astro.props 
+const atts = Attributes(props)
+const itemAtts = props.atts && props.atts.items ? props.atts.items : {}
+
+--- 
+{props.title && 
+<h3>{props.title}</h3>
+}
+<ul {...atts}>{ props.items &&
+    props.items.map(item =>  <LinkListItem {...itemAtts} url={item.url} external={item.external}>{item.text}</LinkListItem>)
+}<slot/></ul>

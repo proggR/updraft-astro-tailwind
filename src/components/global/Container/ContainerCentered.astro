@@ -1,0 +1,16 @@
+---
+import {  Container } from "./"
+import {  flattenClasses } from "../Style"
+import structure from "@globalStructure/centered.json"
+import style from "@globalStyle/centered.json"
+const props = Astro.props
+const classes = flattenClasses(["plug"], structure,style,props)
+---
+
+<Container
+{...props}
+class={classes.class}>
+    <Container class={classes.plug}>
+        <slot />
+    </Container>
+</Container>

@@ -1,0 +1,70 @@
+{
+   "wrap":{
+      "class":"mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
+   },
+   "hero":{
+      "left":{
+         "h1": {
+            "class":"text-3xl md:text-5xl opacity-75 font-bold leading-tight text-center md:text-left mb-2"
+         }
+      }
+   },   
+   "nav":{
+      "class":"",
+      "navbar":{
+         "class":"",
+         "wrap":{
+            "class":""
+         },
+         "main":{
+            "class":""
+         },
+         "brand":{
+         
+         }
+      },
+      "menumain":{
+         "menu":{
+            "class":"",
+            "wrap":{
+               "class":""
+            },
+            "links":{
+               "class":"",
+               "active":{
+                  "class":""
+               }
+            }
+         }
+      },
+      "menumobile":{
+         "button":{
+            "class":"",
+            "svg":{
+               "class":"",
+               "hid":{
+                  "class":""
+               }
+            }
+         },
+         "menu":{
+            "class":"",
+            "wrap":{
+               "class":""
+            },
+            "links":{
+               "class":"",
+               "active":{
+                  "class":""
+               }
+            }
+         }
+      }          
+   }, 
+   "triplet":{
+
+   },
+   "quad":{
+
+   }
+}

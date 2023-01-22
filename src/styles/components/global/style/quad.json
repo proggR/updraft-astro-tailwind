@@ -1,0 +1,15 @@
+{
+    "class":"bg-slate-600",
+    "topleft":{
+       "class":"bg-slate-100"
+    },
+    "topright":{
+       "class":"bg-slate-100"
+    },
+    "bottomleft":{
+       "class":"bg-slate-100"
+    },
+    "bottomright":{
+       "class":"bg-slate-100"
+    }
+}

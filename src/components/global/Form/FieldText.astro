@@ -1,0 +1,32 @@
+--- 
+import { Label, InputText } from "./";
+let tProps = Astro.props 
+const getAtts = (p) => {
+    let input = {}, label = {}
+    if(p.atts){
+        if(p.atts.label){
+            label = p.atts.label
+        }
+
+        if(p.atts.input){
+            input = p.atts.input    
+        }
+    }
+
+    return {input, label}
+}
+tProps.id = tProps.id?tProps.id:tProps.name 
+const props = tProps
+const {label,input} = getAtts(props)
+--- 
+
+<Label for={props.id} label={props.label} {...label}/>
+<slot/>
+<InputText
+    id={props.id}
+    name={props.name}
+    type="text"
+    placeholder={props.placeholder}
+    {...input}
+/>
+

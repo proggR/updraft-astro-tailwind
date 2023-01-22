@@ -1,0 +1,20 @@
+--- 
+import { Split } from './'
+import { flattenClasses } from '../Style'
+import structure from "@globalStructure/sidebarleft.json"
+import style from "@globalStyle/sidebarleft.json"
+
+const props = Astro.props 
+const classes = flattenClasses(["left","right","hook"],structure,style,props)
+console.log(classes)
+console.log(props)
+--- 
+<Split atts={classes}>
+    <slot name="hook" slot="hook" />
+    <slot name="left" slot="left" />
+    <slot name="right" slot="right" />
+</Split>
+    
+
+
+            

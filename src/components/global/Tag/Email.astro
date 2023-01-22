@@ -1,0 +1,14 @@
+--- 
+import { Attributes } from "../Style"
+const props = Astro.props
+let attProps = props 
+const atts = Attributes(attProps)
+const text = props.name ? props.name : props.email 
+--- 
+<a href={`mailto:${props.email}`} {...atts}>
+    {text}
+    <slot/>
+</a>
+
+
+

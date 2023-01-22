@@ -1,0 +1,15 @@
+--- 
+import { Container } from '../Container'
+const props = Astro.props 
+const hookClass = props.hook ? props.hook.class : null
+const plugClass = props.plug ? props.plug.class : null
+--- 
+
+<Container class={props.class}> 
+    <Container class={hookClass}> 
+        <slot name="hook" />
+    </Container>
+    <Container class={plugClass}> 
+        <slot name="plug" />
+    </Container>
+</Container>

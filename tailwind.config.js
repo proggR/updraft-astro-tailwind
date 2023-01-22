@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./src/**/*.{astro,html,jsx,tsx,svelte,vue,js,ts}"],
+	relative: false,
+	content: ["./src/**/*.{astro,html,jsx,tsx,svelte,vue,js,ts,json}"],
 	theme: {
 		extend: {
 			screens: {
@@ -8,5 +9,6 @@ module.exports = {
 			},
 		},
 	},
+	mode: 'jit',
 	plugins: [],
 };

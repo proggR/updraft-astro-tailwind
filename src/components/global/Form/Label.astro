@@ -1,0 +1,10 @@
+--- 
+import { Attributes } from "../Style";
+let tProps = Astro.props 
+tProps.id = tProps.id?tProps.id:tProps.name 
+const props = tProps
+const atts = Attributes(props)
+--- 
+<label for={props.id} {...atts}>
+    {props.label}
+</label>

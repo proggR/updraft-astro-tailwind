@@ -1,0 +1,27 @@
+--- 
+import { Container } from "../../Container"
+import { Strong } from "../../Tag"
+
+
+const props = Astro.props
+const classes = {class:props.class}
+---
+
+<Container class={classes.class}>
+
+    {props.hours &&                
+        <Strong>Hours:</Strong>
+            <ul class="ml-16">
+                <li><Strong>Monday:</Strong> {props.hours.monday}</li>
+                <li><Strong>Tuesday:</Strong> {props.hours.tuesday}</li>
+                <li><Strong>Wednesday:</Strong> {props.hours.wednesday}</li>
+                <li><Strong>Thursday:</Strong> {props.hours.thursday}</li>
+                <li><Strong>Friday:</Strong> {props.hours.friday}</li>
+                <li><Strong>Saturday:</Strong> {props.hours.saturday}</li>
+                <li><Strong>Sunday:</Strong> {props.hours.sunday}</li>
+            </ul>
+    }
+ 
+</Container>    
+
+

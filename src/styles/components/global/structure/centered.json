@@ -1,0 +1,6 @@
+{
+    "class":"w-full",
+    "plug":{
+        "class":"sm:mx-80"
+    }
+}

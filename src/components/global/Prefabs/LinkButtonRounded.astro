@@ -1,0 +1,45 @@
+--- 
+import {Link, Span} from "../Tag"
+import {Img} from "../Media"
+import {Container} from "../Container"
+const props = Astro.props
+const ext = true 
+const h = 48, w = 48
+
+const subAtts = {
+    link:{
+        external: ext,
+        rel: "noopener noreferrer",
+        class: "relative inline-flex items-center rounded-full bg-gray-100 p-4 transition duration-300 ease-in-out hover:-translate-y-2 focus:-translate-y-2 group hover:text-white focus:text-white"
+    },
+    container:{
+        class:"flex items-center space-x-4 relative z-10"
+    },
+    img:{
+        width:w,height:h,
+        class: "rounded-full object-cover",
+        alt: ""
+    },
+    span:{
+        class:"text-lg font-bold"
+    }, 
+    hover:{
+        class:"inline-block rounded-full absolute inset-0 bg-gradient-to-tr from-[#07f49e] to-[#42047e] opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-300 ease-in-out transition"
+    }
+}
+
+---
+
+<Link href={props.href}
+{...subAtts.link}
+>
+    <Container {...subAtts.container}>
+    <Img
+        src={props.src}
+        {...subAtts.img}
+    />
+    <Span {...subAtts.span}>{props.content}<slot/></Span>
+    </Container>    
+    <Container {...subAtts.hover}></Container>
+</Link>
+

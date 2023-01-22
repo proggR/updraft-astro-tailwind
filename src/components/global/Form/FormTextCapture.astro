@@ -1,0 +1,28 @@
+--- 
+import { Form, InputText } from "./";
+let tProps = Astro.props 
+const getAtts = (p) => {
+    let input = {}, label = {}
+    if(p.atts){
+        if(p.atts.input){
+            input = p.atts.input    
+        }
+    }
+
+    return {input}
+}
+tProps.id = tProps.id?tProps.id:tProps.name 
+const props = tProps
+const {input} = getAtts(props)
+--- 
+
+<Form method={props.method} action={props.url} {...props}>
+    <InputText
+    id={props.id}
+    name={props.name}
+    type="text"
+    placeholder={props.placeholder}
+    {...input}
+/>
+</Form>
+

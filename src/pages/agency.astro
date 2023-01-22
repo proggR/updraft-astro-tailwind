@@ -1,0 +1,210 @@
+--- 
+import { LayoutAgency, Footer } from "@globals"
+import { Container, ContainerCentered, 
+            Split, Triplet, Quad, 
+            SidebarLeft, SidebarRight } from "@globals"
+
+import { Navbar } from "@globals"
+import { HeroSplit } from "@globals"
+import { Card, CardVisualHook } from "@globals"
+
+import { List, LinkList } from "@globals"
+
+
+import { ContactCard, ContactCardCompany, SocialSignature, PersonTitle, Map } from "@globals"
+import { PlugCaptureForm, Img } from "@globals"
+
+import atts from '../styles/agency.json'
+
+const cardAtts = {
+	h1:{class:"text-4xl font-semibold"},
+	p:{class:"italic"}
+}
+
+const data = {title:"Guy McDude",bio:"Just look at these shades",bio2:"I just blew my own mind"}
+const address = {
+        street:"34B Monogram Pl",
+        city:"Quinte West",
+        prov:"ON",
+        postal:"K8V 5P8",        
+    }
+const hours = {
+        monday:"11AM-8PM",
+        tuesday:"11AM-8PM",
+        wednesday:"11AM-8PM",
+        thursday:"11AM-8PM",
+        friday:"11AM-6PM",
+        saturday:"11AM-9PM",
+        sunday:"CLOSED"
+    }
+
+const simpleList = ['Item 1', 'Item 2', 'Item 3']
+const linkList = [
+    {text:'Google',url:'https://google.com',external:true},
+    {text:'Splashpage',url:'/',external:false},
+    {text:'Anutha One',url:'#',external:false},
+]    
+
+const footerList1 = { title: 'What We Do',items:[
+    { url:'/what',text:'Footer Item 1' },
+    { url:'/what',text:'Footer Item 2' },
+    { url:'/what',text:'Footer Item 3' },
+    { url:'/what',text:'Footer Item 4' },
+] }
+const footerList2 = { title: "Why We Do", items: footerList1.items }
+const footerList3 = { title: "Quick Links", items: footerList1.items }
+
+// const formAtts = {
+//     "atts":{
+//         label:atts.main.form.body.label,
+//         input:atts.main.form.body.input
+//     }
+// }
+--- 
+   
+<LayoutAgency title="Hello World, &hearts; Affordable Audience">
+    <Container {...atts.wrap}>
+        <!--Nav-->
+        <Navbar {...atts.nav} />
+        <HeroSplit  {...atts.hero}/>
+        <PlugCaptureForm
+            class="bg-slate-900 p-4 m-2 mb-8 text-center"
+            method="POST" 
+            action="https://google.com"
+            name="email"
+            placeholder="vip@email.com">
+            <h3 slot="hook" class={`${atts.hero.left.h1.class} text-center text-slate-100`}>SIGN UP! DO IT NAO!</h3>
+        </PlugCaptureForm> 
+        <ContainerCentered>
+            <List items={simpleList} />
+            <LinkList items={linkList} />
+        </ContainerCentered>           
+        <ContainerCentered>
+            <PlugCaptureForm
+                class="bg-slate-600 p-2 m-2 mb-8 text-center"
+                method="POST" 
+                action="https://google.com"
+                name="email"
+                placeholder="vip@email.com">
+                <h3 slot="hook" class={`${atts.hero.left.h1.class} text-center text-slate-100`}>SIGN UP! DO IT NAO!</h3>
+                <ContactCard
+                slot="hook"
+                class="bg-slate-100 p-4"
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                name="Brando Burger" 
+                email="brandon@burgerrevolution.ca" 
+                phone="(613) 392-2288" 
+                title="I am become death, destroyer of burgers" />
+                <ContactCard
+                slot="footer"
+                class="bg-slate-100 p-4"
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                name="Brando Burger" 
+                email="brandon@burgerrevolution.ca" 
+                phone="(613) 392-2288" 
+                title="I am become death, destroyer of burgers" />
+            </PlugCaptureForm> 
+        </ContainerCentered>           
+        <Split>
+            <Container slot="left">
+                <ContactCardCompany
+                    name="Burger Revolution" 
+                    email="eatme@burgerrevolution.ca" 
+                    phone="(613) 392-2288" 
+                    address="34B Monogram Pl, Quinte West, ON K8V 5P8" 
+                    hours={hours}
+                    address={address}/>
+            </Container>            
+            <Map slot="right" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d183220.43185502774!2d-77.62305412695478!3d44.14897141447716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d617d200aa9f8f%3A0xcc4d9a01f8d95020!2sBurger%20Revolution!5e0!3m2!1sen!2sca!4v1674103255651!5m2!1sen!2sca" />
+        </Split>           
+        <Split {...atts.hero}>
+            <div slot="hook">
+                <h3 class={atts.hero.left.h1.class}>This a heading</h3>
+                <p>And some text. Throw whatever you want here. Saul Good maaan.</p>
+            </div>
+            <p slot="left">I AM LEFT</p>
+            <p slot="right">I AM RIGHT</p>
+        </Split>
+        <SidebarRight {...atts.hero}>
+            <div slot="hook">
+                <h3 class={atts.hero.left.h1.class}>This a Sidebar container</h3>
+                <p>Its got the sidebar on the right</p>
+            </div>
+            <p slot="left">I AM LEFT</p>
+            <p slot="right">I AM RIGHT</p>
+        </SidebarRight>
+        <SidebarLeft {...atts.hero}>
+            <div slot="hook">
+                <h3 class={atts.hero.left.h1.class}>This a Sidebar container</h3>
+                <p>Its got the sidebar on the left</p>
+            </div>
+            <p slot="left">I AM LEFT</p>
+            <p slot="right">I AM RIGHT</p>
+        </SidebarLeft>
+        <Triplet {...atts.triplet}>
+            <div slot="hook">
+                <h3 class={atts.hero.left.h1.class}>This a heading</h3>
+                <p>And some text. Throw whatever you want here. Saul Good maaan.</p>
+            </div>
+            <p slot="left">I AM LEFT</p>
+            <p slot="middle">I AM WRONG</p>
+            <p slot="right">I AM RIGHT</p>
+        </Triplet>
+        <Quad {...atts.quad}>
+            <div slot="hook">
+                <h3 class={atts.hero.left.h1.class}>This another heading</h3>
+                <p>And some text. Throw whatever you want here. Saul Good maaan.</p>
+            </div>
+            <Card slot="tl"
+                atts={cardAtts} 
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                class="space-y-2 text-center">
+                <h3 class={cardAtts.h1.class} slot="hook">{data.title}</h3>
+                <p class={cardAtts.p.class} slot="plug">
+                    {data.bio}
+                </p>
+                <SocialSignature slot="footer"
+                    name="Dude McGuy"
+                    title="CEO"
+                    img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg"/>
+            </Card>
+            <CardVisualHook slot="tr"
+                atts={cardAtts} 
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                class="space-y-2 text-center">
+                <PersonTitle slot="hook"
+                    name="Some Say Innovation Is Anything"
+                    title="Business As Usual"/>
+            </CardVisualHook>
+            <CardVisualHook slot="bl"
+                atts={cardAtts} 
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                class="space-y-2 text-center">
+                <PersonTitle slot="hook">
+                    <span slot="hook">I Say Business Is Usual</span>
+                    <span>Innovation Is Anything</span>
+                    <Img class="mt-4"
+                    src="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg"/>
+                </PersonTitle>
+            </CardVisualHook>                     
+            <Card slot="br"
+                atts={cardAtts} 
+                img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg" 
+                class="space-y-2 text-center">
+                <h3 class={cardAtts.h1.class} slot="hook">{data.title}</h3>
+                <p class={cardAtts.p.class} slot="plug">
+                    {data.bio2}
+                </p>
+                <SocialSignature slot="footer"
+                    name="Johnny Shades"
+                    title="Esquire"
+                    img="https://pbs.twimg.com/profile_images/1315666131051597824/OfWHLLgz_400x400.jpg"/>
+            </Card>            
+        </Quad>
+    </Container>
+    <Footer address={address}
+        list1={footerList1}
+        list2={footerList2}
+        list3={footerList3} />
+</LayoutAgency>

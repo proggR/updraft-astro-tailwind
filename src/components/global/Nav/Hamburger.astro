@@ -1,0 +1,25 @@
+---
+import { Container } from "../Container"
+import { MenuCollapsable } from "./"
+import { Svg } from "../Media"
+import { flattenMenu } from "./"
+import structure from "@globalStructure/menumobile.json"
+import style from "@globalStyle/menumobile.json"
+
+const props = Astro.props
+const { button, svg } = flattenMenu(structure,style,{})
+---
+<Container class={button.wrap}>
+    <!-- Mobile menu button-->
+    <button id="menu-btn" type="button" aria-controls="menu-mobile" aria-expanded="false"
+      class={button.class}>
+      <span class="sr-only">Open main menu</span>
+
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class={svg.class}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class={svg.hid}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+</Container>
